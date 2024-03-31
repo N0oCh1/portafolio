@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types"; 
+interface Props extends HTMLAttributes<'div'> {
+    icon?: string | undefined;
+    name?: string;
+    iconSize?: string 
+}
+const { 
+    icon , name , iconSize, ...rest
+} = Astro.props
+---
+
+<div {...rest} class="flex flex-col justify-center items-center span-1 h-max">
+    <img src={icon} alt={name} loading="lazy" class=`size-[${iconSize}px]`>
+    <span class="block">{name}</span>
+</div>
