@@ -3,8 +3,8 @@ import type { HTMLAttributes } from "astro/types";
 
 
 interface Props extends HTMLAttributes<'div'> {
-    tecnology?: Array<"astro" | "tailwind" | "nextjs" | "react" | "javascript" | "html" | "css">;
-    status: "deploy"|"onlyGit"|"unfinished" ;
+    tecnology?: Array<"astro" | "tailwind" | "nextjs" | "react" | "javascript" | "html" | "css" | "postgresql" | "cs">;
+    status: "deployed"|"onlyGit"|"unfinished" ;
     gitUrl?: string;
     link?: string;
     image: string;
@@ -13,9 +13,19 @@ interface Props extends HTMLAttributes<'div'> {
 const {
     image, title, status, tecnology, gitUrl, link
 } = Astro.props;
+function proyectStatus () {
+    switch (status) {
+        case "deployed":
+            return "bg-green-400 text-black";
+        case "onlyGit":
+            return "bg-yellow-400 text-black";
+        case "unfinished":
+            return "bg-red-400 text-black"; 
+    }
+}
 ---
 
-<div class="flex flex-col gap-3 rounded-xl border border-white p-6 max-w-[360px]">
+<div class="flex flex-col gap-3 rounded-xl border border-white p-6 max-w-[308px] min-w-[240px]">
     <img src={image} class="imgCard"/>
     <header class="header flex flex-col gap-1">
         <h1 class="text-2xl font-bold">
@@ -25,17 +35,25 @@ const {
             <slot />
         </article> 
     </header>
-    <div class="flex flex-col">
-        <div class="flex flex-wrap gap-">
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-wrap gap-2">
             {tecnology?.map(item=>(
                 <div class="background-Image">
                     <img src={`${item}.svg`} width="30" height="30"/>
                 </div>
             ))}
         </div>
+        <div>
+            {gitUrl && <button class="bg-black text-white px-2 py-1 rounded-full font-semibold border border-white hover:bg-white hover:text-black"><a href={`${gitUrl}`} target="_blank">GitHub</a></button>}
+            {link && <button class="bg-blue-900 text-white px-2 py-1 rounded-full font-semibold border border-white hover:bg-white hover:text-black"><a href={`${link}`} target="_blank">Link del proyecto</a></button>}
+        </div>
+        <div>
+            <div class=`px-2 py-1 rounded-full font-semibold ${proyectStatus()} w-max`>
+                {status}
+            </div>
+        </div>
     </div>
 </div>
-
 
 <style>
     .imgCard{
