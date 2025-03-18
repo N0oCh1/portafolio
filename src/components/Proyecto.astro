@@ -5,22 +5,33 @@ import ProyectoCard from "./ProyectoCard.astro";
 
 ---
 
-<section class="flex flex-col items-center justify-center">
+<section class="flex flex-col items-center justify-center gap-4">
     <div class="text-3xl font-bold">
         <h1/>
             Mis Proyectos
         </h1>
     </div>
-    <!-- #Vento -->
-    <div class="gridSection max-w-[1000px] w-full gap-3 flex flex-col">
+    <div class="gridSection max-w-[1000px] w-full gap-3 flex flex-wrap justify-center">
         <ProyectoCard 
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6AAbTgrDoBLsKzmru5JlG0T0WqlwAO7GPMaF0k7HZAw&s"
-        status="deploy"
-        title="Sample title"
-        tecnology={["astro", "tailwind", "nextjs", "css", "html", "javascript", "react"]}
+        image="Proyecto MH API.png"
+        status="deployed"
+        title="Monster Hunter API"
+        gitUrl="https://github.com/N0oCh1/proyecto-Front-end-MHW"
+        link="https://proyecto-front-end-mhw.vercel.app/"
+        tecnology={["css", "html", "javascript"]}
         >
-            Sample description
+            Este proyecto se hizo como propuesta para un proyecto de la universidad, en el que se debia hacer una pagina web que consumiera una API.
         </ProyectoCard> 
+        <ProyectoCard 
+        image="ProyectoAPI.png"
+        status="onlyGit"
+        gitUrl="https://github.com/N0oCh1/Proyecto-API-MHW"
+        title="API MH"
+        tecnology={["cs", "postgresql"]}
+        >
+           Como parte del proyecto habia que crear un back-end y se uso C# y PostgreSQL no esta en deploy por motivos.
+        </ProyectoCard> 
+
     </div>
 </section>
 
