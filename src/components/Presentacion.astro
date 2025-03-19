@@ -3,9 +3,9 @@
 ---
 
 
-<section class="flex flex-row justify-between">
+<section class="flex flex-row justify-between items-center">
     <figure>
-        <img src="https://i0.wp.com/usma.ac.pa/wp-content/uploads/2020/02/placeholder.png?ssl=1" class="foto"/>
+        <img src="perfil.jpg" class="foto" width="250" height="250"/>
     </figure>
     <div class="flex flex-col justify-center items-center text-3xl font-bold w-max">
         <h1 class="block">Rubén Feng</h1>
@@ -26,10 +26,15 @@
 </section>
 <style>
     .foto{
-		max-width: 350px;
-		max-height: 400px;
-		height: auto;
-		width: 100%;
-		object-fit: fill;
+		max-width: 250px;
+		max-height: 250px;
+        min-width: 100px;
+        min-height: 100px;
+        aspect-ratio: 1/1;
+        width: 100%;
+        height: auto;
+        object-position: 50% 50%;
+		object-fit: cover;
+        border-radius: 100%;
 	}
 </style>
