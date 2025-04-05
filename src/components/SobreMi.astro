@@ -18,18 +18,80 @@ import IconName from "./IconName.astro";
             <h1 class="text-2xl font-bold">
                 Tecnologia que uso
             </h1>
-            <div class="flex flex-wrap gap-5 justify-center items-center">
-                <IconName icon='tailwind.svg' name='Tailwind' iconSize='60'/>
-                <IconName icon='astro.svg' name='Astro' iconSize='60'/>
-                <IconName icon='git.svg' name='Git' iconSize='60'/>
-                <IconName icon='storybook.svg' name='Storybook' iconSize='60'/>
-                <IconName icon='css.svg' name='CSS' iconSize='60'/>
-                <IconName icon='javascript.svg' name='JavaScript' iconSize='60'/>
-                <IconName icon='html.svg' name='HTML' iconSize='60'/>
-                <IconName icon='react.svg' name='React' iconSize='60'/>
-                <IconName icon='nextjs.svg' name='NextJS' iconSize='60'/>
-                <IconName icon='typescript.svg' name='TypeScript' iconSize='60'/>
+            <div class="flex flex-row items-center justify-center w-full h-[300px] overflow-hidden relative">
+                <div class="carrusel1">
+                    <IconName icon='javascript.svg' name='JavaScript' />
+                    <IconName icon='html.svg' name='HTML' />
+                    <IconName icon='react.svg' name='React' />
+                    <IconName icon='nextjs.svg' name='NextJS' />
+                    <IconName icon='typescript.svg' name='TypeScript' />
+                    <IconName icon='javascript.svg' name='JavaScript' />
+                    <IconName icon='html.svg' name='HTML' />
+                    <IconName icon='react.svg' name='React' />
+                    <IconName icon='nextjs.svg' name='NextJS' />
+                    <IconName icon='typescript.svg' name='TypeScript' />
+                </div>
+                <div class="carrusel">
+                    <IconName icon='tailwind.svg' name='Tailwind' />
+                    <IconName icon='astro.svg' name='Astro' />
+                    <IconName icon='git.svg' name='Git' />
+                    <IconName icon='storybook.svg' name='Storybook' />
+                    <IconName icon='css.svg' name='CSS' />
+                    <IconName icon='tailwind.svg' name='Tailwind' />
+                    <IconName icon='astro.svg' name='Astro' />
+                    <IconName icon='git.svg' name='Git' />
+                    <IconName icon='storybook.svg' name='Storybook' />
+                    <IconName icon='css.svg' name='CSS' />
+                    
+                </div>
+
             </div>
         </div>
     </div>
 </section>
+
+
+<style>
+.carrusel{
+    position: absolute;
+    display: flex;
+    gap:4px;
+    left: -150px;
+    top: 200px;
+    will-change: transform;
+    animation: slide 10s linear infinite;
+}
+.carrusel1{
+    position:absolute;
+    display: flex;
+    left: 50px;
+    top: 200px;
+    will-change: transform;
+    animation: slide1 10s linear infinite;
+}
+@media (max-width:400px){
+    .carrusel{
+        left: -300px;
+    }
+    .carrusel1{
+        left: -100px
+    }
+}
+@keyframes slide {
+    0% {
+        transform: translate(80px, 80px) rotate(45deg);
+    }
+    100% {
+        transform: translate(-260px, -260px) rotate(45deg);
+
+    }
+}
+@keyframes slide1 {
+    0% {
+        transform: translate(-275px, -275px) rotate(45deg);
+    }
+    100% {
+        transform: translate(50px, 50px) rotate(45deg);
+    }
+}
+</style>

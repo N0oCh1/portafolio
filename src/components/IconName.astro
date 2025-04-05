@@ -10,12 +10,18 @@ const {
 } = Astro.props
 ---
 
-<div {...rest} class="flex flex-col justify-center items-center span-1 h-max relative background-Image p-8 rounded-full">
-    <img src={icon} alt={name} loading="lazy" width={iconSize}/>
-    <span class="block text-xl">{name}</span>
+<div {...rest} class=`flex flex-col justify-center items-center h-max background-Image p-4 rounded-full w-[${iconSize}px] overflow-hidden`>
+    <img src={icon} alt={name} loading="lazy" class=`${iconSize ? '[&&]:max-w-[${iconSize}px] [&&]:w-[${iconSize}px] [&&]:h-[${iconSize}px]' : 'iconStyle'} object-contain `/>
+    <span class="block text-xs w-auto">{name}</span>
 </div>
 
 <style>
+    .iconStyle{
+        max-width: 60px;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
     .background-Image{
         background-image: radial-gradient(circle at center, #110834 0, #110834 100%);
         transition: background-image 1s ease-in-out;
