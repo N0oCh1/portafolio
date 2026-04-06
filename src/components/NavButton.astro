@@ -1,15 +1,20 @@
 ---
-const {
-    isSelected,
-    id,
-    ref
-} = Astro.props;
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<"button"> {
+    isSelected?: boolean;
+    id: string;
+    class: string;
+}
+
+const { isSelected, id, class: className, ...ref } = Astro.props as Props;
 ---
 
 <button 
     id={id}
-    class={isSelected ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300' } >
-    {ref}
+    {...ref}
+    class={`${className} text-white rounded-2xl px-3 py-1 drop-shadow-2xl transition-colors duration-300 hover:bg-white/10`}
+>
     <slot />
 </button>
 
