@@ -1,0 +1,22 @@
+---
+import NavButton from "./NavButton.astro";
+---
+
+<nav>
+    <ul class="flex gap-4 flex-row bg-[#110834]">
+        <li><NavButton class="NavButton" id="home-btn">Home</NavButton></li>
+        <li><NavButton class="NavButton" id="about-btn">About</NavButton></li>
+        <li><NavButton class="NavButton" id="projects-btn">Projects</NavButton></li>
+        <li><NavButton class="NavButton" id="contact-btn">Contact</NavButton></li>
+    </ul>
+</nav>
+
+<script>
+    const buttons = document.querySelectorAll('.NavButton');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            buttons.forEach(btn => btn.classList.remove('bg-blue-500', 'text-white'));
+            button.classList.add('bg-blue-500', 'text-white');
+        });
+    });
+</script>
