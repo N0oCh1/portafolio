@@ -1,10 +1,10 @@
 ---
 import LayoutCenter from "@/layouts/LayoutCenter.astro";
+import WIP from "@components/WIP.astro";
 ---
 
 <LayoutCenter>
   <div
-    id="#home"
     class={`
             bg-[#ffffff00] 
             w-3/4 h-150
@@ -13,11 +13,24 @@ import LayoutCenter from "@/layouts/LayoutCenter.astro";
             `}
   >
     <img
-      src="/public/assets/lostsignal.gif"
+      id="home"
+      src="/src/assets/lostsignal.gif"
       alt="Lost Signal"
       class="w-full h-full object-cover rounded-3xl"
     />
-      <div class="h-200 bg-white w-20"></div>
-  </div>
+      <div class="h-150 w-full grid grid-cols-2 grid-rows-2 gap-4 mt-10" id="about">
+        <div class="bg-white rounded-2xl shadow-2xl ">
 
+        </div>
+        <div class="bg-white row-span-2 rounded-2xl shadow-2xl ">
+          <h1>
+            Ruben Feng, Software developer
+          </h1>
+        </div>
+        <div class="bg-white rounded-2xl shadow-2xl ">
+
+        </div>
+      </div>
+      <WIP />
+  </div>
 </LayoutCenter>
